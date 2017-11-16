@@ -1,10 +1,13 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import RoundedButton from '../src/components/RoundedButton';
 
 const propTypes = { ...withStylesPropTypes };
+
+const MARGIN_VERTICAL = 1.6;
+const MARGIN_HORIZONTAL = 1.2;
+const SIZE = 4;
 
 class RoundedButtonWrapper extends React.Component {
   go() {
@@ -18,24 +21,96 @@ class RoundedButtonWrapper extends React.Component {
 
     return (
       <div {...css(styles.container)}>
-        <RoundedButton
-          {...this.props}
-          label="3"
-          size={3}
-          onClick={() => { window.alert('yoyo') }}
-        />
-        <RoundedButton
-          {...this.props}
-          label="4"
-          size={4}
-          onClick={() => { window.alert('yoyo') }}
-        />
-        <RoundedButton
-          {...this.props}
-          label="5"
-          size={5}
-          onClick={() => { window.alert('yoyo') }}
-        />
+        <div {...css(styles.lineContainer)}>
+          <RoundedButton
+            {...this.props}
+            label="1"
+            size={SIZE}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label="2"
+            size={SIZE}
+            marginVertical={MARGIN_VERTICAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label="3"
+            size={SIZE}
+            onClick={() => { window.alert('yoyo') }}
+          />
+        </div>
+        <div {...css(styles.lineContainer)}>
+          <RoundedButton
+            {...this.props}
+            label="4"
+            size={SIZE}
+            marginHorizontal={MARGIN_HORIZONTAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label="5"
+            size={SIZE}
+            marginHorizontal={MARGIN_HORIZONTAL}
+            marginVertical={MARGIN_VERTICAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label="6"
+            size={SIZE}
+            marginHorizontal={MARGIN_HORIZONTAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+        </div>
+        <div {...css(styles.lineContainer)}>
+          <RoundedButton
+            {...this.props}
+            label="7"
+            size={SIZE}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label="8"
+            size={SIZE}
+            marginVertical={MARGIN_VERTICAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label="9"
+            size={SIZE}
+            onClick={() => { window.alert('yoyo') }}
+          />
+        </div>
+        <div {...css(styles.lineContainer)}>
+          <RoundedButton
+            {...this.props}
+            label="<"
+            size={SIZE}
+            marginHorizontal={MARGIN_HORIZONTAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label="0"
+            size={SIZE}
+            marginHorizontal={MARGIN_HORIZONTAL}
+            marginVertical={MARGIN_VERTICAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+          <RoundedButton
+            {...this.props}
+            label=">"
+            size={SIZE}
+            marginHorizontal={MARGIN_HORIZONTAL}
+            onClick={() => { window.alert('yoyo') }}
+          />
+        </div>
       </div>
     );
   }
@@ -49,5 +124,12 @@ export default withStyles(({ aeroPay: { color } }) => ({
     display: 'flex',
     flex: 1,
     padding: '25px',
+    flexDirection: 'column',
+  },
+  lineContainer: {
+    display: 'inherit',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 }))(RoundedButtonWrapper);

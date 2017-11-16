@@ -4,27 +4,37 @@ import { forbidExtraProps } from 'airbnb-prop-types';
 
 import {
   BUTTON_KEY,
-  ICON_AFTER_POSITION,
 } from '../constants';
 
 import RoundedButtonShape from '../shapes/RoundedButtonShape';
 
 const propTypes = forbidExtraProps({
   ...withStylesPropTypes,
-  RoundedButtonShape,
+  ...RoundedButtonShape,
 });
 
 const defaultProps = {
   onClick() {},
   size: 1,
   type: BUTTON_KEY,
-  iconPosition: ICON_AFTER_POSITION,
+  disabled: false,
+  marginHorizontal: 0,
+  marginVertical: 0,
 };
 
 class RoundedButton extends React.Component {
   constructor(props) {
     super(props);
-    console.log('teste');
+
+    this.state = {
+      pressed: false,
+    };
+  }
+
+  isPressed(status) {
+    this.setState({
+      pressed: status,
+    });
   }
 
   render() {
@@ -32,11 +42,18 @@ class RoundedButton extends React.Component {
       label,
       size,
       onClick,
-      iconPosition,
-      icon,
+      iconAfter,
+      iconBefore,
       type,
+      disabled,
+      marginHorizontal,
+      marginVertical,
       styles,
     } = this.props;
+
+    const {
+      pressed,
+    } = this.state;
 
     return (
       <div
@@ -46,20 +63,21 @@ class RoundedButton extends React.Component {
             height: `${size}rem`,
             width: `${size}rem`,
             borderRadius: `${size * 0.5}rem`,
+            margin: `${marginHorizontal}rem ${marginVertical}rem`,
           },
           type === BUTTON_KEY && styles.RoundedButton_type__key,
+          pressed && !disabled && styles.RoundedButton_pressed,
+          disabled && styles.RoundedButton_disabled,
         )}
-        onClick={onClick}
-        onTouchEnd={onClick}
+        onClick={() => !disabled && onClick()}
+        onTouchEnd={() => !disabled && this.isPressed(false)}
+        onTouchCancel={() => !disabled && this.isPressed(false)}
+        onTouchStart={() => !disabled && this.isPressed(true)}
         role="presentation"
-        >
-        <span {...css(
-          styles.RoundedButton_label,
-          {
-            fontSize: `${size * 0.4}rem`,
-          },
-      )}>{label}
-        </span>
+      >
+        { iconBefore ? <span {...css(styles.RoundedButton_icon__before, { fontSize: `${size * 0.35}rem` })}>{iconBefore}</span> : null }
+        <span {...css(styles.RoundedButton_label, { fontSize: `${size * 0.35}rem` })}>{label}</span>
+        { iconAfter ? <span {...css(styles.RoundedButton_icon__after, { fontSize: `${size * 0.35}rem` })}>{iconAfter}</span> : null }
       </div>
     );
   }
@@ -74,11 +92,12 @@ export default withStyles(({ aeroPay: { color, zIndex } }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: color.core.secondary,
+    backgroundColor: 'inherit',
     zIndex: zIndex + 1,
+    transition: 'background-color 0.5s ease',
 
     ':hover': {
-      backgroundColor: `darken(${color.core.grayLighter}, 10%)`,
+      backgroundColor: `${color.core.secondary}`,
       textDecoration: 'none',
     },
 
@@ -89,39 +108,17 @@ export default withStyles(({ aeroPay: { color, zIndex } }) => ({
     zIndex: zIndex + 2,
   },
 
+  RoundedButton_disabled: {
+    opacity: 0.2,
+  },
+
   RoundedButton_type__key: {
     border: `0.05rem solid ${color.core.borderLighter}`,
   },
 
-  SingleDatePicker_closeButton: {
-    background: 'none',
-    border: 0,
-    color: 'inherit',
-    font: 'inherit',
-    lineHeight: 'normal',
-    overflow: 'visible',
-    cursor: 'pointer',
-
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    padding: 15,
-    zIndex: zIndex + 2,
-
-    ':hover': {
-      color: `darken(${color.core.grayLighter}, 10%)`,
-      textDecoration: 'none',
-    },
-
-    ':focus': {
-      color: `darken(${color.core.grayLighter}, 10%)`,
-      textDecoration: 'none',
-    },
+  RoundedButton_pressed: {
+    backgroundColor: `${color.core.secondary}`,
+    textDecoration: 'none',
   },
 
-  SingleDatePicker_closeButton_svg: {
-    height: 15,
-    width: 15,
-    fill: color.core.grayLighter,
-  },
 }))(RoundedButton);

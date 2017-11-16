@@ -6,9 +6,6 @@ export const HORIZONTAL_ORIENTATION = 'horizontal';
 export const VERTICAL_ORIENTATION = 'vertical';
 export const VERTICAL_SCROLLABLE = 'verticalScrollable';
 
-export const ICON_BEFORE_POSITION = 'before';
-export const ICON_AFTER_POSITION = 'after';
-
 export const ANCHOR_LEFT = 'left';
 export const ANCHOR_RIGHT = 'right';
 
