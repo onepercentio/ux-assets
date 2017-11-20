@@ -4,6 +4,8 @@ import { forbidExtraProps } from 'airbnb-prop-types';
 
 import {
   BUTTON_KEY,
+  BUTTON_CONFIRM,
+  BUTTON_CANCEL,
 } from '../constants';
 
 import RoundedButtonShape from '../shapes/RoundedButtonShape';
@@ -66,6 +68,8 @@ class RoundedButton extends React.Component {
             margin: `${marginHorizontal}rem ${marginVertical}rem`,
           },
           type === BUTTON_KEY && styles.RoundedButton_type__key,
+          type === BUTTON_CONFIRM && styles.RoundedButton_type__confirm,
+          type === BUTTON_CANCEL && styles.RoundedButton_type__cancel,
           pressed && !disabled && styles.RoundedButton_pressed,
           disabled && styles.RoundedButton_disabled,
         )}
@@ -75,9 +79,9 @@ class RoundedButton extends React.Component {
         onTouchStart={() => !disabled && this.isPressed(true)}
         role="presentation"
       >
-        { iconBefore ? <span {...css(styles.RoundedButton_icon__before, { fontSize: `${size * 0.35}rem` })}>{iconBefore}</span> : null }
-        <span {...css(styles.RoundedButton_label, { fontSize: `${size * 0.35}rem` })}>{label}</span>
-        { iconAfter ? <span {...css(styles.RoundedButton_icon__after, { fontSize: `${size * 0.35}rem` })}>{iconAfter}</span> : null }
+        { iconBefore ? <span {...css(styles.RoundedButton_icon__before, { fontSize: `${size * 0.33}rem` })}>{iconBefore}</span> : null }
+        <span {...css(styles.RoundedButton_label, { fontSize: `${size * 0.33}rem` })}>{label}</span>
+        { iconAfter ? <span {...css(styles.RoundedButton_icon__after, { fontSize: `${size * 0.33}rem` })}>{iconAfter}</span> : null }
       </div>
     );
   }
@@ -114,6 +118,15 @@ export default withStyles(({ aeroPay: { color, zIndex } }) => ({
 
   RoundedButton_type__key: {
     border: `0.05rem solid ${color.core.borderLighter}`,
+  },
+
+  RoundedButton_type__confirm: {
+    border: `0.05rem solid ${color.core.borderLighter}`,
+    backgroundColor: `${color.core.primaryShade_1}`,
+  },
+
+  RoundedButton_type__cancel: {
+    border: `0.05rem solid ${color.core.borderMedium}`,
   },
 
   RoundedButton_pressed: {

@@ -48,11 +48,11 @@ export default {
       disabled: core.grayLightest,
 
       background: core.secondary,
-      backgroundDark: '#f2f2f2',
+      backgroundDark: core.grayLightest,
       backgroundFocused: core.white,
       text: core.gray,
       textDisabled: core.border,
-      textFocused: '#007a87',
+      textFocused: core.secondary,
       placeholderText: '#757575',
 
       outside: {

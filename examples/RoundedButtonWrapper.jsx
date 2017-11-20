@@ -2,12 +2,19 @@ import React from 'react';
 import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import RoundedButton from '../src/components/RoundedButton';
+import CloseButton from '../src/components/CloseButton';
 
 const propTypes = { ...withStylesPropTypes };
 
 const MARGIN_VERTICAL = 1.6;
 const MARGIN_HORIZONTAL = 1.2;
 const SIZE = 4;
+
+import {
+  BUTTON_CANCEL,
+  BUTTON_CONFIRM,
+  BUTTON_KEY,
+} from '../constants';
 
 class RoundedButtonWrapper extends React.Component {
   go() {
@@ -26,20 +33,20 @@ class RoundedButtonWrapper extends React.Component {
             {...this.props}
             label="1"
             size={SIZE}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
           <RoundedButton
             {...this.props}
             label="2"
             size={SIZE}
             marginVertical={MARGIN_VERTICAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
           <RoundedButton
             {...this.props}
             label="3"
             size={SIZE}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
         </div>
         <div {...css(styles.lineContainer)}>
@@ -48,7 +55,7 @@ class RoundedButtonWrapper extends React.Component {
             label="4"
             size={SIZE}
             marginHorizontal={MARGIN_HORIZONTAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
           <RoundedButton
             {...this.props}
@@ -56,14 +63,14 @@ class RoundedButtonWrapper extends React.Component {
             size={SIZE}
             marginHorizontal={MARGIN_HORIZONTAL}
             marginVertical={MARGIN_VERTICAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
           <RoundedButton
             {...this.props}
             label="6"
             size={SIZE}
             marginHorizontal={MARGIN_HORIZONTAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
         </div>
         <div {...css(styles.lineContainer)}>
@@ -71,20 +78,20 @@ class RoundedButtonWrapper extends React.Component {
             {...this.props}
             label="7"
             size={SIZE}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
           <RoundedButton
             {...this.props}
             label="8"
             size={SIZE}
             marginVertical={MARGIN_VERTICAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
           <RoundedButton
             {...this.props}
             label="9"
             size={SIZE}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
           />
         </div>
         <div {...css(styles.lineContainer)}>
@@ -93,7 +100,9 @@ class RoundedButtonWrapper extends React.Component {
             label="<"
             size={SIZE}
             marginHorizontal={MARGIN_HORIZONTAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert(CloseButton); }}
+            type={BUTTON_CANCEL}
+            iconBefore={CloseButton}
           />
           <RoundedButton
             {...this.props}
@@ -101,14 +110,16 @@ class RoundedButtonWrapper extends React.Component {
             size={SIZE}
             marginHorizontal={MARGIN_HORIZONTAL}
             marginVertical={MARGIN_VERTICAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
+            type={BUTTON_KEY}
           />
           <RoundedButton
             {...this.props}
             label=">"
             size={SIZE}
             marginHorizontal={MARGIN_HORIZONTAL}
-            onClick={() => { window.alert('yoyo') }}
+            onClick={() => { window.alert('yoyo'); }}
+            type={BUTTON_CONFIRM}
           />
         </div>
       </div>

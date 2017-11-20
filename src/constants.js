@@ -15,4 +15,5 @@ export const OPEN_UP = 'up';
 export const BLOCKED_MODIFIER = 'blocked';
 
 export const BUTTON_KEY = 'key';
-export const BUTTON_ACTION = 'action';
+export const BUTTON_CONFIRM = 'confirm';
+export const BUTTON_CANCEL = 'cancel';

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 
 import {
-  BUTTON_ACTION,
+  BUTTON_CONFIRM,
   BUTTON_KEY,
+  BUTTON_CANCEL,
 } from '../constants';
 
-export default PropTypes.oneOf([BUTTON_ACTION, BUTTON_KEY]);
+export default PropTypes.oneOf([BUTTON_CONFIRM, BUTTON_KEY, BUTTON_CANCEL]);
