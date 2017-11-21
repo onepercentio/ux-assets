@@ -57,6 +57,7 @@ setOptions({
 
 function loadStories() {
   require('../stories/RoundedButton');
+  require('../stories/InputDot');
 }
 
 setAddon(infoAddon);

@@ -64,7 +64,7 @@ class RoundedButton extends React.Component {
           {
             height: `${size}rem`,
             width: `${size}rem`,
-            borderRadius: `${size * 0.5}rem`,
+            borderRadius: '50%',
             margin: `${marginHorizontal}rem ${marginVertical}rem`,
           },
           type === BUTTON_KEY && styles.RoundedButton_type__key,
@@ -131,7 +131,6 @@ export default withStyles(({ aeroPay: { color, zIndex } }) => ({
 
   RoundedButton_pressed: {
     backgroundColor: `${color.core.secondary}`,
-    textDecoration: 'none',
   },
 
 }))(RoundedButton);

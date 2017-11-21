@@ -3,18 +3,18 @@ import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
 
 import RoundedButton from '../src/components/RoundedButton';
 import CloseButton from '../src/components/CloseButton';
-
-const propTypes = { ...withStylesPropTypes };
-
-const MARGIN_VERTICAL = 1.6;
-const MARGIN_HORIZONTAL = 1.2;
-const SIZE = 4;
-
 import {
   BUTTON_CANCEL,
   BUTTON_CONFIRM,
   BUTTON_KEY,
 } from '../constants';
+
+const propTypes = { ...withStylesPropTypes };
+
+// in your real code use style.spacing instead
+const MARGIN_VERTICAL = 1.6;
+const MARGIN_HORIZONTAL = 1.2;
+const SIZE = 4;
 
 class RoundedButtonWrapper extends React.Component {
   go() {
@@ -102,7 +102,7 @@ class RoundedButtonWrapper extends React.Component {
             marginHorizontal={MARGIN_HORIZONTAL}
             onClick={() => { window.alert(CloseButton); }}
             type={BUTTON_CANCEL}
-            iconBefore={CloseButton}
+            iconBefore={CloseButton()}
           />
           <RoundedButton
             {...this.props}

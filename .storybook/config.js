@@ -51,12 +51,13 @@ addDecorator(story => (
 ));
 
 setOptions({
-  name: 'REACT-DATES',
-  url: 'https://github.com/airbnb/react-dates',
+  name: 'aeroPay',
+  url: 'https://github.com/onepercentio/ux-assets',
 });
 
 function loadStories() {
   require('../stories/RoundedButton');
+  require('../stories/InputDot');
 }
 
 setAddon(infoAddon);

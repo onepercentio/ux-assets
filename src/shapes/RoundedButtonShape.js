@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
-import { nonNegativeInteger } from 'airbnb-prop-types';
-
 import ButtonTypeShape from '../shapes/ButtonTypeShape';
 
 export default {
   label: PropTypes.string.isRequired,
-  size: nonNegativeInteger,
+  size: PropTypes.number,
   onClick: PropTypes.func.isRequired,
   iconAfter: PropTypes.node,
   iconBefore: PropTypes.node,
