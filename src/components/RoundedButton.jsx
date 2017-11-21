@@ -116,17 +116,20 @@ export default withStyles(({ aeroPay: { color, zIndex } }) => ({
     opacity: 0.2,
   },
 
+  RoundedButton_icon__before: {
+  },
+
   RoundedButton_type__key: {
-    border: `0.05rem solid ${color.core.borderLighter}`,
+    border: `0.05rem solid ${color.core.white}`,
   },
 
   RoundedButton_type__confirm: {
-    border: `0.05rem solid ${color.core.borderLighter}`,
-    backgroundColor: `${color.core.primaryShade_1}`,
+    border: `0.05rem solid ${color.core.white}`,
+    backgroundColor: `${color.core.thirdy}`,
   },
 
   RoundedButton_type__cancel: {
-    border: `0.05rem solid ${color.core.borderMedium}`,
+    border: `0.05rem solid ${color.core.gray}`,
   },
 
   RoundedButton_pressed: {

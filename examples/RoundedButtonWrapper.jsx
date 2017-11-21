@@ -97,12 +97,11 @@ class RoundedButtonWrapper extends React.Component {
         <div {...css(styles.lineContainer)}>
           <RoundedButton
             {...this.props}
-            label="<"
+            label="X"
             size={SIZE}
             marginHorizontal={MARGIN_HORIZONTAL}
             onClick={() => { window.alert(CloseButton); }}
             type={BUTTON_CANCEL}
-            iconBefore={CloseButton()}
           />
           <RoundedButton
             {...this.props}

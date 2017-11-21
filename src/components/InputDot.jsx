@@ -50,12 +50,12 @@ export default withStyles(({ aeroPay: { color, zIndex } }) => ({
     alignItems: 'center',
     zIndex: zIndex + 1,
     transition: 'background-color 0.5s ease',
-    border: `0.05rem solid ${color.core.borderLighter}`,
+    border: `0.05rem solid ${color.core.secondary}`,
     backgroundColor: `${color.core.white}`,
   },
 
   InputDot_filled: {
-    backgroundColor: `${color.core.primayShade_3}`,
+    backgroundColor: `${color.core.secondary}`,
   },
 
 }))(InputDot);
