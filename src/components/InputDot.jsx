@@ -49,7 +49,7 @@ export default withStyles(({ aeroPay: { color, zIndex } }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: zIndex + 1,
-    transition: 'background-color 0.5s ease',
+    transition: 'background-color 0.1s ease',
     border: `0.05rem solid ${color.core.secondary}`,
     backgroundColor: `${color.core.white}`,
   },

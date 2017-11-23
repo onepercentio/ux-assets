@@ -58,6 +58,7 @@ setOptions({
 function loadStories() {
   require('../stories/RoundedButton');
   require('../stories/InputDot');
+  require('../stories/NumericKeyboard');
 }
 
 setAddon(infoAddon);
